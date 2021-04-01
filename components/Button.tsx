@@ -16,7 +16,7 @@ const Button = styled.button<Props>`
   display: inline-block;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
+  font-size: ${12 / size.font}rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
