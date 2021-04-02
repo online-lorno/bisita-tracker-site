@@ -33,10 +33,10 @@ const ImageNavLink = styled.div`
 `
 
 const NavLink = styled.a`
-  font-size: ${12 / size.font}rem;
+  font-size: ${size.font.p}px;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${color.lightGray};
+  color: ${color.text.medium};
 
   &:not(:last-child) {
     margin-right: 20px;
@@ -44,7 +44,7 @@ const NavLink = styled.a`
 
   &:hover,
   &:focus {
-    color: ${color.white};
+    color: ${color.text.primary};
   }
 `
 
