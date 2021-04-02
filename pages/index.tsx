@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import Container from 'components/Container'
 import Button from 'components/Button'
+import { breakpoints as bp } from 'lib/constants/layout'
 
 const SectionContainer = styled.div`
   display: flex;
@@ -11,12 +12,33 @@ const SectionContainer = styled.div`
   align-items: center;
   margin-bottom: 100px;
 
-  & > div {
-    &.text-content {
+  & > .text-content {
+    width: 100%;
+  }
+
+  & > .image-content {
+    display: none;
+    padding: 0;
+  }
+
+  @media screen and (min-width: ${bp.md}) {
+    & > .text-content {
+      width: 50%;
+    }
+
+    & > .image-content {
+      display: block;
+      width: 50%;
+      padding: 0 1rem;
+    }
+  }
+
+  @media screen and (min-width: ${bp.lg}) {
+    & > .text-content {
       width: 60%;
     }
 
-    &.image-content {
+    & > .image-content {
       display: block;
       width: 40%;
       padding: 0 2rem;
