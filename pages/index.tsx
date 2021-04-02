@@ -32,7 +32,7 @@ const IndexPage: React.FC = () => (
     <Container>
       <SectionContainer>
         <div className="text-content">
-          <h1>Bisita - Foot traffic tracker app</h1>
+          <h2>Bisita - Foot traffic tracker app</h2>
           <p>
             Sunt voluptate ullamco ullamco minim laborum excepteur laborum laborum esse. Minim dolor
             ad et eu excepteur occaecat nostrud non consequat incididunt aliqua. Quis ex duis nulla
@@ -49,8 +49,8 @@ const IndexPage: React.FC = () => (
         </div>
         <div className="image-content">
           <Image
-            src="/images/image-mask.svg"
-            alt="image-mask"
+            src="/images/onboarding-1.svg"
+            alt="onboarding-1"
             width={100}
             height={100}
             layout="responsive"
@@ -60,15 +60,15 @@ const IndexPage: React.FC = () => (
       <SectionContainer>
         <div className="image-content">
           <Image
-            src="/images/image-mask.svg"
-            alt="image-mask"
+            src="/images/onboarding-2.svg"
+            alt="onboarding-2"
             width={100}
             height={100}
             layout="responsive"
           />
         </div>
         <div className="text-content">
-          <h1>Fugiat labore exercitation sunt pariatur fugiat id occaecat sint culpa.</h1>
+          <h2>Fugiat labore exercitation sunt pariatur fugiat id occaecat sint culpa.</h2>
           <p>
             Laboris excepteur tempor nulla ad ut adipisicing eu culpa sint tempor laborum culpa.
             Aliqua enim aliqua tempor elit ullamco cillum velit in voluptate esse nostrud ullamco
@@ -90,7 +90,7 @@ const IndexPage: React.FC = () => (
       </SectionContainer>
       <SectionContainer>
         <div className="text-content">
-          <h1>Bisita - Foot traffic tracker app</h1>
+          <h2>Bisita - Foot traffic tracker app</h2>
           <p>
             Sunt voluptate ullamco ullamco minim laborum excepteur laborum laborum esse. Minim dolor
             ad et eu excepteur occaecat nostrud non consequat incididunt aliqua. Quis ex duis nulla
@@ -107,43 +107,12 @@ const IndexPage: React.FC = () => (
         </div>
         <div className="image-content">
           <Image
-            src="/images/image-mask.svg"
-            alt="image-mask"
+            src="/images/onboarding-3.svg"
+            alt="onboarding-3"
             width={100}
             height={100}
             layout="responsive"
           />
-        </div>
-      </SectionContainer>
-      <SectionContainer>
-        <div className="image-content">
-          <Image
-            src="/images/image-mask.svg"
-            alt="image-mask"
-            width={100}
-            height={100}
-            layout="responsive"
-          />
-        </div>
-        <div className="text-content">
-          <h1>Fugiat labore exercitation sunt pariatur fugiat id occaecat sint culpa.</h1>
-          <p>
-            Laboris excepteur tempor nulla ad ut adipisicing eu culpa sint tempor laborum culpa.
-            Aliqua enim aliqua tempor elit ullamco cillum velit in voluptate esse nostrud ullamco
-            eiusmod commodo. Laboris aliquip commodo qui qui duis nisi reprehenderit qui occaecat
-            occaecat sunt. Lorem labore consequat adipisicing eiusmod amet amet sit eiusmod
-            excepteur. Aute magna et est irure voluptate deserunt. In ad pariatur labore ad. Enim
-            enim labore laborum esse esse excepteur do ea.
-          </p>
-          <p>
-            Aliqua officia cillum sit occaecat enim minim. Exercitation fugiat sint pariatur
-            proident voluptate ut dolor. Proident veniam ipsum excepteur veniam anim aliqua
-            pariatur. Quis exercitation eu amet nulla deserunt duis sit nostrud. Eu officia officia
-            eu occaecat nulla aliqua duis excepteur ullamco commodo ea dolore. Esse ex magna nisi do
-            magna duis magna aliqua. Amet enim ea irure non.
-          </p>
-          <Button primary>Lorem</Button>
-          <Button secondary>Ipsum</Button>
         </div>
       </SectionContainer>
     </Container>
