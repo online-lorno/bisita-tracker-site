@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styled from 'styled-components'
@@ -29,7 +30,6 @@ const RightNavigation = styled.div`
 
 const ImageNavLink = styled.div`
   margin-right: 44px;
-  cursor: pointer;
 `
 
 const NavLink = styled.a`
@@ -48,13 +48,23 @@ const NavLink = styled.a`
   }
 `
 
+// Fix error:
+// Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const ImageLink = React.forwardRef(() => {
+  return (
+    <a>
+      <Image src="/logo.svg" alt="Bisita logo" width={36} height={36} />
+    </a>
+  )
+})
+
 const Header: React.FC = () => {
   return (
     <Navigation>
       <LeftNavigation>
         <ImageNavLink>
           <Link href="/">
-            <Image src="/logo.svg" alt="Bisita logo" width={36} height={36} />
+            <ImageLink />
           </Link>
         </ImageNavLink>
         <Link href="/">
