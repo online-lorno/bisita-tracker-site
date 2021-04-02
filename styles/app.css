@@ -1,4 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/Axiforma-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/Axiforma-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/Axiforma-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/Axiforma-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/Axiforma-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
 
 * {
   box-sizing: border-box;
@@ -6,19 +39,34 @@
 
 html,
 body {
-  background: #0f1145;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: #8476aa;
+  background: #f9f9ff;
+  font-family: 'Axiforma', sans-serif;
+  font-size: 18px;
+  color: #16056b;
 }
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #99efd0;
+h3 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 54px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h2,
+h3 {
+  font-weight: 600;
 }
 
 a {
