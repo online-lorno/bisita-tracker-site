@@ -1,0 +1,12 @@
+# serverless.yml
+
+stage: ${env.STAGE}
+region: ${env.AWS_REGION}
+
+bisita-website:
+  component: '@sls-next/serverless-component@1.19.0-alpha.42'
+  inputs:
+    name: bisita-website-${stage}
+    bucketName: bisita-website-${stage}
+    bucketRegion: ${region}
+    imageOptimizer: true

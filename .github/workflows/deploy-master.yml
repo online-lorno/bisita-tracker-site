@@ -1,0 +1,79 @@
+name: Deploy to production
+
+on:
+  # Triggerrs the workflow on push
+  push:
+    branches:
+      - master
+
+  # Allows workflow to run manually
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '12.x'
+  AWS_S3_BUCKET: bisita-website-production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checks-out repository
+        id: checkout-repository
+        uses: actions/checkout@v2
+
+      # Setup Node.js ${{ env.NODE_VERSION }}
+      - name: Setup Node.js
+        id: setup-nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # Configure AWS Credentials
+      - name: Configure AWS Credentials
+        id: configure-aws-credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PRODUCTION_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PRODUCTION_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.PRODUCTION_AWS_REGION }}
+
+      # Install AWS CLI
+      - name: Install AWS CLI
+        id: install-aws-cli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip -qq awscliv2.zip
+          sudo ./aws/install --update
+
+      # Create S3 bucket if not existing
+      #
+      - name: Create S3 bucket
+        id: create-s3-bucket
+        run: |
+          aws s3 ls  s3://${{ env.AWS_S3_BUCKET}} || aws s3api create-bucket --bucket ${{ env.AWS_S3_BUCKET }} --region ${{ secrets.PRODUCTION_AWS_REGION }} --create-bucket-configuration LocationConstraint=${{ secrets.PRODUCTION_AWS_REGION }}
+          touch empty.txt
+          aws s3 cp empty.txt s3://${{ env.AWS_S3_BUCKET }}/.serverless/empty.txt
+
+      # Install dependencies
+      - name: Install dependencies
+        id: install-dependencies
+        run: yarn install --frozen-lockfile
+
+      # Download .serverless directory
+      - name: Download .serverless directory
+        id: download-serverless-directory
+        run: |
+          mkdir .serverless
+          aws s3 sync s3://${{ env.AWS_S3_BUCKET }}/.serverless .serverless
+
+      # Deploy project
+      - name: Deploy project
+        id: deploy-project
+        run: STAGE=production AWS_REGION=${{ secrets.PRODUCTION_AWS_REGION }} npx serverless
+
+      # Upload .serverless directory
+      - name: Upload .serverless directory
+        id: upload-serverless-directory
+        run: |
+          aws s3 sync .serverless s3://${{ env.AWS_S3_BUCKET }}/.serverless
